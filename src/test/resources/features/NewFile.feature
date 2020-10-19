@@ -17,9 +17,9 @@ Feature: Log in
     When User waits 1 seconds for 'element' is visible by 'locator'
     When User waits 5 seconds for screenshot element 'login' appears
     When User clicks on 'login' screenshot
-    Then Check 'screenshots/1602774772.png' and 'screenshots/1602774772.png' screenshots are the same
+    Then Check '1602774772' and '1602774772' screenshots are the same
     Then Check 'login' and screenshot by "(//a[contains(text(),'Careers')])[2]" are the same
-    When User types 'text' into 'screenshot' input field
+    When User types 'text' into 'screenshot' input field screenshot
     When User clicks on 'career_link' screenshot
     When User enters '10rubliv@gmail.com' in 'logIn input field' "MainPage|PASSWORD"
     When User enters 'Yura19861116' in 'password input field' "//input[@name='password']"
@@ -35,8 +35,8 @@ Feature: Log in
     When User double clicks 'details' 'locator'
     When User enters 'text' in 'log in filed' "//input[@name='lgIn']"
     When User clears text from 'detail' 'locator'
-    When User clicks browser back page
-    And  User clicks browser forward page
+    When User clicks browser back button
+    And  User clicks browser forward button
     And User moves mouse over 'detail' 'locator'
     And User refreshes page
     And User waits 2000 milliseconds
