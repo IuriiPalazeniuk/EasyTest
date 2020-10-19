@@ -60,7 +60,9 @@ Feature: Log in
     Then Check all assertions
 
     Scenario: 2 positive
-      Given User navigates to 'https://www.foresee.com/'
-      When User moves mouse over 'detail' "//li[@id='menu-item-33415']"
-      And User clicks on element contains 'Webinars' text
+      Given User sets 'https://reqres.in' link and 'json' contentType for request
+      When User sends 'GET' request to '/api/users?page=2'
+      Then Status Code is 200
+      And Response body is equal to 'src/test/resources/test.json'
+      And Response body contains 'data[1].email' filed with 'lindsay.ferguson@reqres.in' value
 

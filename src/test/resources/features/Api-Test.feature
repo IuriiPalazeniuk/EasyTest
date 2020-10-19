@@ -2,14 +2,13 @@
 Feature: Verify framework API test steps
 
   Scenario: Verify GET request
-    Given User sets 'google.com' link and 'json' contentType for request
-    When User sends 'GET' request to '?foo1=bar1&foo2=bar2'
-    When User sends 'POST' request to 'sdfg!.df' with body '{\"title\": \"Test Post Request with Body passed as string\"}'
-    Then Status Code is 201
+    Given User sets 'https://reqres.in/' link and 'json' contentType for request
+    When User sends 'GET' request to '/api/users?page=2'
+    Then Status Code is 200
     And Response body matches "get_schema.json" schema
     And Response body contains 'price' filed
     And Response body is equal to 'get_response_data.json'
-    And Response body contains 'field' filed with 'value' value
+    And Response body contains 'email' filed with 'lindsay.ferguson@reqres.in' value
 
   Scenario: Verify GET request with query in the request URI
     When User sends 'GET' request to "{BASE_API_URL}/get?foo1=bar1&foo2=bar2"

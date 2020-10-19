@@ -31,7 +31,7 @@ public class RestAssuredMain {
                 .spec(reqSpec)
                 .when()
                 .get(endPoint);
-        log.info("Response body if GET request is: " + rawResponse.getBody().toString());
+        log.info("Response body if GET request is: " + rawResponse.body().prettyPrint());
         setContext(HTTP_RESPONSE, rawResponse);
     }
 
@@ -42,7 +42,7 @@ public class RestAssuredMain {
                 .body(new File(request).exists() ? new File(request) : request)
                 .when()
                 .post(endPoint);
-        log.info("Response body of POST request is: " + rawResponse.getBody().toString());
+        log.info("Response body of POST request is: " + rawResponse.body().prettyPrint());
         setContext(HTTP_RESPONSE, rawResponse);
     }
 
@@ -53,7 +53,7 @@ public class RestAssuredMain {
                 .body(new File(request).exists() ? new File(request) : request)
                 .when()
                 .put(endPoint);
-        log.info("Response body of PUT request is: " + rawResponse.getBody().toString());
+        log.info("Response body of PUT request is: " + rawResponse.body().prettyPrint());
         setContext(HTTP_RESPONSE, rawResponse);
     }
 
@@ -63,7 +63,7 @@ public class RestAssuredMain {
                 .spec(reqSpec)
                 .when()
                 .delete(endPoint);
-        log.info("Response body of DELETE request is: " + rawResponse.getBody().toString());
+        log.info("Response body of DELETE request is: " + rawResponse.body().prettyPrint());
         setContext(HTTP_RESPONSE, rawResponse);
     }
 
