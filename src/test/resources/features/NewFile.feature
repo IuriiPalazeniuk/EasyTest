@@ -48,12 +48,7 @@ Feature: Log in
     When User selects dropdown 'locator' with text 'text'
     When User presses Enter key in 'detail' "locator"
     Then Check checkbox 'locator' is 'checked'
-
-    When User clicks 'detail' 'locator' with text 'text' on 'detail' 'locator' with text 'text'
-    When User clicks 'detail' 'locator' on 'detail' 'locator' with text 'text'
-
     When User scroll to 'locator' element
-
     When User clicks on 2 item in 'locator' collection
     When User clicks on 2 item in "cssOrXpathSelector" collection with child text "collection name"
     Then Check size of 'locator' collection is 5
@@ -63,6 +58,6 @@ Feature: Log in
       Given User sets 'https://reqres.in' link and 'json' contentType for request
       When User sends 'GET' request to '/api/users?page=2'
       Then Status Code is 200
-      And Response body is equal to 'src/test/resources/test.json'
+      And Response body is equal to 'src/test/resources/testData/test.json'
       And Response body contains 'data[1].email' filed with 'lindsay.ferguson@reqres.in' value
 

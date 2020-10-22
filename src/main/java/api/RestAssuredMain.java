@@ -1,5 +1,6 @@
 package api;
 
+import com.github.viclovsky.swagger.coverage.SwaggerCoverageRestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.LogDetail;
@@ -27,7 +28,7 @@ public class RestAssuredMain {
 
     public static void getRequest(@NonNull String endPoint) {
         RequestSpecification reqSpec = getContext(HTTP_REQUEST_SPECIFICATION);
-        Response rawResponse = given()
+        Response rawResponse = given().filter(new SwaggerCoverageRestAssured())
                 .spec(reqSpec)
                 .when()
                 .get(endPoint);
@@ -37,7 +38,7 @@ public class RestAssuredMain {
 
     public static void postRequest(@NonNull String endPoint, @NonNull String request) {
         RequestSpecification reqSpec = getContext(HTTP_REQUEST_SPECIFICATION);
-        Response rawResponse = given()
+        Response rawResponse = given().filter(new SwaggerCoverageRestAssured())
                 .spec(reqSpec)
                 .body(new File(request).exists() ? new File(request) : request)
                 .when()
@@ -48,7 +49,7 @@ public class RestAssuredMain {
 
     public static void putRequest(@NonNull String endPoint, @NonNull String request) {
         RequestSpecification reqSpec = getContext(HTTP_REQUEST_SPECIFICATION);
-        Response rawResponse = given()
+        Response rawResponse = given().filter(new SwaggerCoverageRestAssured())
                 .spec(reqSpec)
                 .body(new File(request).exists() ? new File(request) : request)
                 .when()
@@ -59,7 +60,7 @@ public class RestAssuredMain {
 
     public static void deleteRequest(@NonNull String endPoint) {
         RequestSpecification reqSpec = getContext(HTTP_REQUEST_SPECIFICATION);
-        Response rawResponse = given()
+        Response rawResponse = given().filter(new SwaggerCoverageRestAssured())
                 .spec(reqSpec)
                 .when()
                 .delete(endPoint);

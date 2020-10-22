@@ -412,16 +412,6 @@ public class StepDefsUI {
         pressEnter(locator);
     }
 
-    @When("User clicks {string} {string} with text {string} on {string} {string} with text {string}")
-    public void userClicksDetailLocatorWithTextTextOnDetailLocatorWithTextText() {
-
-    }
-
-    @When("User clicks {string} {string} on {string} {string} with text {string}")
-    public void userClicksDetailLocatorOnDetailLocatorWithTextText() {
-
-    }
-
     /**
      * Take element's screenshot. (Screenshots are located in 'project/screenshots' folder with timestamp.png name)
      *
