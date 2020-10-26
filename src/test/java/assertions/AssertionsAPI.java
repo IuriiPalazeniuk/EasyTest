@@ -1,14 +1,11 @@
 package assertions;
 
 import io.restassured.response.Response;
-import lombok.SneakyThrows;
 import org.junit.Assert;
-
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 import static api.ScenarioContext.ContextEnum.HTTP_RESPONSE;
 import static api.ScenarioContext.getContext;
+import static helpers.FileHelper.readFileAsString;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
@@ -43,11 +40,5 @@ public class AssertionsAPI {
         String expectedResult = readFileAsString(path);
         Assert.assertEquals("Files are different!", actualResult, expectedResult);
 
-    }
-
-    @SneakyThrows
-    private static String readFileAsString(String file) {
-        return new String(Files.readAllBytes(Paths.get(file)))
-                .replace("\r", "").replaceAll(" +", " ");
     }
 }

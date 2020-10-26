@@ -4,6 +4,8 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import static api.ScenarioContext.ContextEnum.DOWNLOADED_FILE;
 import static api.ScenarioContext.setContext;
@@ -24,5 +26,10 @@ public class FileHelper {
 
     public static void uploadFileByPath(String locator, String filePath) {
         getElement(locator).uploadFile(new File(filePath));
+    }
+    @SneakyThrows
+    public static String readFileAsString(String file) {
+        return new String(Files.readAllBytes(Paths.get(file)))
+                .replace("\r", "").replaceAll(" +", " ");
     }
 }

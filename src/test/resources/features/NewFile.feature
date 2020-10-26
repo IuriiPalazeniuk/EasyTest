@@ -3,7 +3,6 @@ Feature: Log in
   Scenario: positive case
     Given User navigates to 'http://automationpractice.com/index.php'
     When User clicks 'Search button' "//button[@name='search']"
-    When User clicks browser back page
     Then Check element "//button[@type='submit']" is 'displayed'
 
   Scenario: 1 positive case
@@ -60,4 +59,10 @@ Feature: Log in
       Then Status Code is 200
       And Response body is equal to 'src/test/resources/testData/test.json'
       And Response body contains 'data[1].email' filed with 'lindsay.ferguson@reqres.in' value
+
+  Scenario: 3 positive
+    Given User sets 'https://reqres.in' link and 'json' contentType for request
+    When User sends 'POST' request to '/api/users' with body 'src/test/resources/testData/post.json'
+    Then Status Code is 201
+
 

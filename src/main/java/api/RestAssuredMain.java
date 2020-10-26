@@ -17,6 +17,7 @@ import static api.ScenarioContext.ContextEnum.HTTP_REQUEST_SPECIFICATION;
 import static api.ScenarioContext.ContextEnum.HTTP_RESPONSE;
 import static api.ScenarioContext.getContext;
 import static api.ScenarioContext.setContext;
+import static helpers.FileHelper.readFileAsString;
 import static io.restassured.RestAssured.config;
 import static io.restassured.RestAssured.given;
 import static io.restassured.config.EncoderConfig.encoderConfig;
@@ -40,7 +41,7 @@ public class RestAssuredMain {
         RequestSpecification reqSpec = getContext(HTTP_REQUEST_SPECIFICATION);
         Response rawResponse = given().filter(new SwaggerCoverageRestAssured())
                 .spec(reqSpec)
-                .body(new File(request).exists() ? new File(request) : request)
+                .body(new File(request).exists() ? readFileAsString(request) : request)
                 .when()
                 .post(endPoint);
         log.info("Response body of POST request is: " + rawResponse.body().prettyPrint());

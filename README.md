@@ -21,7 +21,7 @@ Table of contents
  * Cucumber BDD framework ([Cucumber](https://cucumber.io/docs))
  * Maven build tool ([Maven](https://maven.apache.org))
  * Selenide a wrapper for Selenium WebDriver ([Selenide](https://selenide.org/documentation.html))
- 
+ * Swagger coverage ([Swagger Coverage Rest Assured](https://viclovsky.github.io/%D0%B0%D0%B2%D1%82%D0%BE%D1%82%D0%B5%D1%81%D1%82%D1%8B%20%D0%BD%D0%B0%20api/2020/01/16/swagger-coverage/))
 
 ## Test scenario example
 
