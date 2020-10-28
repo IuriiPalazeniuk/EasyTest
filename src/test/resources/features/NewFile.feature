@@ -8,13 +8,13 @@ Feature: Log in
   Scenario: 1 positive case
     Given User navigates to 'https://www.foresee.com/'
     And User waits 500 milliseconds
-    When User takes screenshot of 'pageName' page and set 'main_page' name
-    When User takes screenshot of 'details' "//dd[@class='panel-0 cycle-slide active']"
-    And User waits 5000 milliseconds
-    When User takes screenshot of 'details' "(//a[contains(text(),'Careers')])[2]" and set 'login' name
-    When User takes screenshot of 'pageName' page
-    When User waits 1 seconds for 'element' is visible by 'locator'
-    When User waits 5 seconds for screenshot element 'login' appears
+#    When User takes screenshot of 'pageName' page and set 'main_page' name
+#    When User takes screenshot of 'details' "//dd[@class='panel-0 cycle-slide active']"
+#    And User waits 5000 milliseconds
+    When User takes screenshot of 'details' "(//a[contains(text(),'Careers')])[2]" and set 'login2' name
+#    When User takes screenshot of 'pageName' page
+#    When User waits 1 seconds for 'element' is visible by 'locator'
+#    When User waits 5 seconds for screenshot element 'login' appears
     When User clicks on 'login' screenshot
     Then Check '1602774772' and '1602774772' screenshots are the same
     Then Check 'login' and screenshot by "(//a[contains(text(),'Careers')])[2]" are the same
@@ -62,7 +62,7 @@ Feature: Log in
 
   Scenario: 3 positive
     Given User sets 'https://reqres.in' link and 'json' contentType for request
-    When User sends 'POST' request to '/api/users' with body 'src/test/resources/testData/post.json'
+    When User sends 'POST' request to '/api/users' with body 'src\test\resources\testData\post.json'
     Then Status Code is 201
 
 

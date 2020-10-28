@@ -2,7 +2,10 @@ package helpers;
 
 import enums.PageEnum;
 import lombok.extern.slf4j.Slf4j;
-import pages.*;
+import pages.BasePage;
+import pages.LogInPage;
+import pages.MainPage;
+import pages.ResultPage;
 
 import static enums.PageEnum.getPageWithName;
 

@@ -8,15 +8,17 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lombok.extern.slf4j.Slf4j;
+import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.File;
 
 import static api.ScenarioContext.getContext;
 import static assertions.AssertionsUI.*;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static helpers.ActionHelper.*;
-import static helpers.FileHelper.downloadFile;
-import static helpers.FileHelper.uploadFileByPath;
+import static helpers.FileHelper.*;
 import static helpers.PageHelper.getVariable;
 import static helpers.ScreenshotHelper.*;
 
@@ -296,7 +298,7 @@ public class StepDefsUI {
     @When("User uploads {string} {string} using {string} {string}")
     public void userUploadsFileUsingLocator(String detail, String filePath, String details, String locator) {
         log.info("user uploads file " + detail + " by " + details + "");
-        uploadFileByPath(locator, filePath);
+        uploadFileByPath(locator, replaceFileSeparator(filePath));
     }
 
     /**
